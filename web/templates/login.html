@@ -1,0 +1,31 @@
+
+
+{% block content %}
+      <div class="container">
+              <form method="post">
+                    {% csrf_token %}
+                    <h2>Register</h2>
+
+
+                      {% if messages %}
+                   <div class="alert alert-primary" role="alert">
+                            {% for m in messages %}
+                            {{ m }}
+                          {% endfor %}
+                    </div>
+                    {% endif %}
+
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                      </div>
+                        <p>Already dont have account <a href="{% url 'login' %}">Login</a></p>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+      </div>
+{% endblock %}
